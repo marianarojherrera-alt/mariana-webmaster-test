@@ -1,0 +1,42 @@
+<section class="hero" id="inicio">
+
+  <div class="hero-container">
+
+    <div class="hero-copy">
+
+      <p class="eyebrow">
+        {{ hero()?.eyebrow }}
+      </p>
+
+      <h1>
+        {{ hero()?.title }}
+      </h1>
+
+      <p class="hero-description">
+        {{ hero()?.description }}
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="#contacto"
+          (click)="trackCta()"
+        >
+          {{ hero()?.primaryCta }}
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="#expertise"
+        >
+          {{ hero()?.secondaryCta }}
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

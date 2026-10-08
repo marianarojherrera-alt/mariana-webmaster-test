@@ -1,0 +1,184 @@
+<section class="contact" id="contacto">
+
+  <div class="contact-container">
+
+    <div class="contact-heading">
+
+      <p class="section-label">
+        Contact
+      </p>
+
+      <h2>
+        Let's work together.
+      </h2>
+
+      <p>
+        Have a project in mind? Tell me a little about it.
+      </p>
+
+    </div>
+
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+
+      <div class="form-field">
+
+        <label for="name">
+          Name
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          [attr.aria-invalid]="
+            contactForm.controls.name.invalid &&
+            contactForm.controls.name.touched
+          "
+          [attr.aria-describedby]="
+            contactForm.controls.name.invalid &&
+            contactForm.controls.name.touched
+              ? 'name-error'
+              : null
+          "
+        >
+
+        @if (
+          contactForm.controls.name.invalid &&
+          contactForm.controls.name.touched
+        ) {
+          <small
+            id="name-error"
+            class="error"
+          >
+            Please enter your name.
+          </small>
+        }
+
+      </div>
+
+
+      <div class="form-field">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          [attr.aria-invalid]="
+            contactForm.controls.email.invalid &&
+            contactForm.controls.email.touched
+          "
+          [attr.aria-describedby]="
+            contactForm.controls.email.invalid &&
+            contactForm.controls.email.touched
+              ? 'email-error'
+              : null
+          "
+        >
+
+        @if (
+          contactForm.controls.email.invalid &&
+          contactForm.controls.email.touched
+        ) {
+          <small
+            id="email-error"
+            class="error"
+          >
+            Please enter a valid email.
+          </small>
+        }
+
+      </div>
+
+
+      <div class="form-field">
+
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="6"
+          [attr.aria-invalid]="
+            contactForm.controls.message.invalid &&
+            contactForm.controls.message.touched
+          "
+          [attr.aria-describedby]="
+            contactForm.controls.message.invalid &&
+            contactForm.controls.message.touched
+              ? 'message-error'
+              : null
+          "
+        ></textarea>
+
+        @if (
+          contactForm.controls.message.invalid &&
+          contactForm.controls.message.touched
+        ) {
+          <small
+            id="message-error"
+            class="error"
+          >
+            Please enter a message.
+          </small>
+        }
+
+      </div>
+
+
+      <button
+        type="submit"
+        [disabled]="isLoading"
+        [attr.aria-busy]="isLoading"
+      >
+
+        @if (isLoading) {
+          Sending...
+        } @else {
+          Send message
+        }
+
+      </button>
+
+
+      @if (successMessage) {
+
+        <p
+          class="success-message"
+          role="status"
+          aria-live="polite"
+        >
+          {{ successMessage }}
+        </p>
+
+      }
+
+
+      @if (errorMessage) {
+
+        <p
+          class="error-message"
+          role="alert"
+          aria-live="assertive"
+        >
+          {{ errorMessage }}
+        </p>
+
+      }
+
+    </form>
+
+  </div>
+
+</section>
