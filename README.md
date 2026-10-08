@@ -24,7 +24,7 @@ El proyecto demuestra una implementación sencilla pero estructurada de una land
 Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/marianarojherrera-alt/mariana-webmaster-test.git>
 ```
 
 Entrar a la carpeta del proyecto:
